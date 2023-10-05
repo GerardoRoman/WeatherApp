@@ -5,6 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather App</title>
+  <script>
+    // Load environment variables from .env file
+    async function loadEnv() {
+      const response = await fetch('.env');
+      const text = await response.text();
+      const lines = text.split('\n');
+      for (const line of lines) {
+        const [key, value] = line.split('=');
+        if (key && value) {
+          process.env[key.trim()] = value.trim();
+        }
+      }
+    }
+
+    // Call the function to load environment variables
+    loadEnv();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -43,8 +60,7 @@
   </div>
 
   <script>
-    require('dotenv').config();
-    const apiKey = process.env.API_KEY;
+    const apiKey = "6275b7227825eda6cd34594d2211ba7c";
     const apiUrl =
       "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
 
