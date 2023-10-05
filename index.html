@@ -43,7 +43,8 @@
   </div>
 
   <script>
-    const apiKey = "6275b7227825eda6cd34594d2211ba7c";
+    require('dotenv').config();
+    const apiKey = process.env.API_KEY;
     const apiUrl =
       "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
 
